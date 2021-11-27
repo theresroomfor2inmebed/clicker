@@ -1,5 +1,18 @@
-_G.click = true;
-while _G.click == true do
+getgenv().AutoClick = true;
+getgenv().OpenCase = true;
+
+spawn(function()
+while AutoClick == true do
     game:GetService("ReplicatedStorage").Events.ClientClick:FireServer()
-    wait(0.30)
+    wait()
 end
+end)
+
+spawn(function() 
+local args = {
+"Starter"
+}
+  while OpenCase and wait() do
+    game:GetService("ReplicatedStorage").Events.OpenCase:InvokeServer(unpack(args))
+  end
+end) 
